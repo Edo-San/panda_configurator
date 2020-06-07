@@ -73,7 +73,7 @@ export default Vue.extend({
   }
   &__list {
     display: grid;
-    grid-template-columns: 36px repeat(4, auto) 36px;
+    grid-template-columns: 36px repeat(4, 1fr) 36px;
     grid-template-rows: [list-items] 36px [indicator] 1px;
     &__element {
       grid-row-start: [list-items];
