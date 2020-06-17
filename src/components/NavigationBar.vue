@@ -13,27 +13,10 @@
       >
         {{ section.name }} {{ section.isActive }}
       </li>
-      <!--li
-        class="NavigationBar__list__element NavigationBar__list__element--color NavigationBar__list__element--active"
-      >
-        colore
-      </li>
-      <li
-        class="NavigationBar__list__element NavigationBar__list__element--rims"
-      >
-        cerchi
-      </li>
-      <li
-        class="NavigationBar__list__element NavigationBar__list__element--glasses"
-      >
-        vetri
-      </li>
-      <li
-        class="NavigationBar__list__element NavigationBar__list__element--virility"
-      >
-        virilità
-      </li-->
-      <hr class="NavigationBar__indicator" />
+      <hr
+        class="NavigationBar__indicator"
+        :class="[`NavigationBar__indicator--${getActiveSection.code}`]"
+      />
     </ul>
     <hr class="NavigationBar__separator" />
   </nav>
@@ -46,7 +29,7 @@ import { mapGetters, mapActions } from "vuex";
 export default Vue.extend({
   name: "NavigationBar",
   computed: {
-    ...mapGetters("navigation", ["getSections"])
+    ...mapGetters("navigation", ["getSections", "getActiveSection"])
   },
   methods: {
     ...mapActions("navigation", ["setActiveSection"])
@@ -64,19 +47,42 @@ export default Vue.extend({
     background: $black;
     margin: 0px;
     width: 60px;
+    transition: 0.3s ease;
+    grid-row-start: indicator;
+
+    &--color {
+      margin-left: $navbar-list-side-column-width + $navbar-list-element-width /
+        2;
+    }
+    &--rims {
+      margin-left: $navbar-list-side-column-width +
+        ($navbar-list-element-width * 2 - $navbar-list-element-width / 2);
+    }
+    &--glasses {
+      margin-left: $navbar-list-side-column-width +
+        ($navbar-list-element-width * 3 - $navbar-list-element-width / 2);
+    }
+    &--virility {
+      margin-left: $navbar-list-side-column-width +
+        ($navbar-list-element-width * 4 - $navbar-list-element-width / 2);
+    }
   }
+
   &__separator {
     border: none;
     height: 1px;
     background: $black;
     margin: 0px;
   }
+
   &__list {
     display: grid;
-    grid-template-columns: 36px repeat(4, 1fr) 36px;
-    grid-template-rows: [list-items] 36px [indicator] 1px;
+    grid-template-columns: $navbar-list-side-column-width repeat(4, 1fr) $navbar-list-side-column-width;
+    grid-template-rows: [list-items] $navbar-list-side-column-width [indicator] 6px;
+    justify-items: center;
+    transition: 1s ease;
+
     &__element {
-      grid-row-start: [list-items];
       text-align: center;
 
       &--color {
@@ -90,18 +96,6 @@ export default Vue.extend({
       }
       &--virility {
         grid-column-start: 5;
-      }
-
-      &--active {
-        background-image: linear-gradient(
-          to top,
-          $black 6px,
-          rgba(255, 255, 255, 0) 6px
-        );
-        background-position: bottom;
-        background-size: 60px;
-        background-repeat: no-repeat;
-        transition: 0.5s ease;
       }
     }
   }
