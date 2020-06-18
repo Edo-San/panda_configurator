@@ -11,7 +11,7 @@
         ]"
         @click="setActiveSection(section)"
       >
-        {{ section.name }} {{ section.isActive }}
+        {{ section.name }}
       </li>
       <hr
         class="NavigationBar__indicator"
@@ -84,6 +84,13 @@ export default Vue.extend({
 
     &__element {
       text-align: center;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      font-variant: all-small-caps;
+      font-size: 20px;
+      cursor: pointer;
 
       &--color {
         grid-column-start: 2;
