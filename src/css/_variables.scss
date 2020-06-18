@@ -2,7 +2,11 @@
 $orange: #cd7400;
 $light-gray: #dedede;
 $black: #000000;
+$blue: #005fcd;
 
 // Sizes
-$navbar-list-side-column-width: 36px;
-$navbar-list-element-width: 171px;
+$full-width: 414px;
+
+$navbar-list-side-column-width: 24px;
+$navbar-list-element-width: ($full-width - (2 * $navbar-list-side-column-width)) / 4; // 4 is the number of current navigation elements (aka steps)
+$navbar-indicator-width: 60px;

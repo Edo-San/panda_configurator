@@ -46,25 +46,30 @@ export default Vue.extend({
     height: 6px;
     background: $black;
     margin: 0px;
-    width: 60px;
+    width: $navbar-indicator-width;
     transition: 0.3s ease;
     grid-row-start: indicator;
+    grid-column-start: 1;
 
     &--color {
-      margin-left: $navbar-list-side-column-width + $navbar-list-element-width /
-        2;
+      margin-left: (
+          $navbar-list-side-column-width + $navbar-list-element-width / 2
+        ) - $navbar-indicator-width / 2;
     }
     &--rims {
-      margin-left: $navbar-list-side-column-width +
-        ($navbar-list-element-width * 2 - $navbar-list-element-width / 2);
+      margin-left: (
+          $navbar-list-side-column-width + $navbar-list-element-width * 3 / 2
+        ) - $navbar-indicator-width / 2;
     }
     &--glasses {
-      margin-left: $navbar-list-side-column-width +
-        ($navbar-list-element-width * 3 - $navbar-list-element-width / 2);
+      margin-left: (
+          $navbar-list-side-column-width + $navbar-list-element-width * 5 / 2
+        ) - $navbar-indicator-width / 2;
     }
     &--virility {
-      margin-left: $navbar-list-side-column-width +
-        ($navbar-list-element-width * 4 - $navbar-list-element-width / 2);
+      margin-left: (
+          $navbar-list-side-column-width + $navbar-list-element-width * 7 / 2
+        ) - $navbar-indicator-width / 2;
     }
   }
 
@@ -78,16 +83,17 @@ export default Vue.extend({
   &__list {
     display: grid;
     grid-template-columns: $navbar-list-side-column-width repeat(4, 1fr) $navbar-list-side-column-width;
-    grid-template-rows: [list-items] $navbar-list-side-column-width [indicator] 6px;
-    justify-items: center;
-    transition: 1s ease;
+    grid-template-rows: [list-items] 36px [indicator] 6px;
+    justify-items: stretch;
+    align-items: stretch;
+    margin: 0px;
 
     &__element {
       text-align: center;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-transform: uppercase;
       font-weight: 600;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.2px;
       font-variant: all-small-caps;
       font-size: 20px;
       cursor: pointer;

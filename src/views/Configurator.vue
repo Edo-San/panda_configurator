@@ -30,16 +30,20 @@ export default Vue.extend({
 
 .Configurator {
   &__container {
-    width: 414px;
+    width: $full-width;
     height: 1000px;
     margin: 0px auto;
     background-color: $light-gray;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1.4px;
-    font-variant: all-small-caps;
-    font-size: 20px;
+    // text-transform: uppercase;
+    // font-weight: 600;
+    // letter-spacing: 1.4px;
+    // font-variant: all-small-caps;
+    // font-size: 20px;
+
+    .Step {
+      margin: 30px 36px;
+    }
   }
 }
 </style>
