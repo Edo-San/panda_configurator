@@ -47,7 +47,7 @@ export default Vue.extend({
     background: $black;
     margin: 0px;
     width: $navbar-indicator-width;
-    transition: 0.3s ease;
+    transition: 0.4s ease;
     grid-row-start: indicator;
     grid-column-start: 1;
 

@@ -17,7 +17,7 @@
   right: 2px;
   cursor: inherit;
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.6s;
 
   &--inverted {
     color: $white;

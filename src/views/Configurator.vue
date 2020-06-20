@@ -4,6 +4,7 @@
     <MainImage />
     <NavigationBar />
     <ColorStep />
+    <ForwardButton />
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import CustomHeader from "../components/CustomHeader.vue";
 import MainImage from "../components/MainImage.vue";
 import NavigationBar from "../components/NavigationBar.vue";
 import ColorStep from "../components/steps/ColorStep.vue";
+import ForwardButton from "../components/ForwardButton.vue";
 
 export default Vue.extend({
   name: "Configurator",
@@ -20,7 +22,8 @@ export default Vue.extend({
     CustomHeader: CustomHeader,
     MainImage: MainImage,
     NavigationBar: NavigationBar,
-    ColorStep: ColorStep
+    ColorStep: ColorStep,
+    ForwardButton: ForwardButton
   }
 });
 </script>
