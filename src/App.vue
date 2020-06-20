@@ -9,4 +9,19 @@
 </template>
 
 <style lang="scss">
+@import "@/css/_variables.scss";
+
+.CheckBoxIcon {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  cursor: inherit;
+
+  &--inverted {
+    color: $white;
+  }
+
+  &__ghost {
+  }
+}
 </style>

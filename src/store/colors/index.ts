@@ -14,6 +14,18 @@ const state = {
       isSelected: false,
       code: "blue",
     },
+    {
+      title: "Bianco costa poco",
+      description: "Colore più selezionato, non che sia bello, ma è di default e quindi costa molto poco. Pezzenti.",
+      isSelected: false,
+      code: "white",
+    },
+    {
+      title: "Nero decente",
+      description: "L’unico colore decente, il nero non delude mai. E basta.",
+      isSelected: false,
+      code: "black",
+    }
   ],
 };
 

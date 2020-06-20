@@ -3,12 +3,14 @@
     <div
       class="ColorOption__Swatch"
       :class="[`ColorOption__Swatch--${color.code}`]"
-    ></div>
+    >
+      <span class="material-icons CheckBoxIcon CheckBoxIcon--inverted"
+        >check_box</span
+      >
+    </div>
     <div class="ColorOption__Text">
       <h3 class="ColorOption__Text__Title">{{ color.title }}</h3>
-      <p class="ColorOption__Text__Description">
-        {{ color.description }}
-      </p>
+      <p class="ColorOption__Text__Description">{{ color.description }}</p>
     </div>
   </div>
 </template>
@@ -35,6 +37,8 @@ export default Vue.extend({
     flex-shrink: 0;
     flex-grow: 0;
     height: 50px;
+    position: relative;
+    cursor: pointer;
 
     &--orange {
       background-color: $orange;
@@ -42,6 +46,14 @@ export default Vue.extend({
 
     &--blue {
       background-color: $blue;
+    }
+
+    &--black {
+      background-color: $black;
+    }
+
+    &--white {
+      background-color: $white;
     }
   }
 
