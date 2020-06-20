@@ -4,7 +4,9 @@
       class="ColorOption__Swatch"
       :class="[`ColorOption__Swatch--${color.code}`]"
     >
-      <span class="material-icons CheckBoxIcon CheckBoxIcon--inverted"
+      <span
+        class="material-icons CheckBoxIcon"
+        :class="color.code === 'black' && 'CheckBoxIcon--inverted'"
         >check_box</span
       >
     </div>
