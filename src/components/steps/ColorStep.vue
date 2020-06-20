@@ -1,6 +1,6 @@
 <template>
   <section class="Step ColorStep">
-    <ColorOption v-for="color in getColors" :color="color" :key="color" />
+    <ColorOption v-for="color in getColors" :color="color" :key="color.code" />
   </section>
 </template>
 
@@ -21,5 +21,4 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

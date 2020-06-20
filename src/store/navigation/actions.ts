@@ -1,5 +1,4 @@
 import { SET_ACTIVE_SECTION, SET_INACTIVE_SECTION } from "./mutations";
-import getters from "./getters";
 
 export default {
   setActiveSection: ({ commit, dispatch, state }, section) => {

@@ -1,5 +1,3 @@
-// import servizi eventuali
-
 export const SET_ACTIVE_SECTION = "SET_ACTIVE_SECTION";
 export const SET_INACTIVE_SECTION = "SET_INACTIVE_SECTION";
 

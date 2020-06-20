@@ -3,8 +3,10 @@
     <div
       class="ColorOption__Swatch"
       :class="[`ColorOption__Swatch--${color.code}`]"
+      @click="setSelectedColor(color)"
     >
       <span
+        v-if="color.isSelected"
         class="material-icons CheckBoxIcon"
         :class="color.code === 'black' && 'CheckBoxIcon--inverted'"
         >check_box</span
@@ -19,10 +21,14 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapActions } from "vuex";
 
 export default Vue.extend({
   name: "ColorOption",
-  props: ["color"]
+  props: ["color"],
+  methods: {
+    ...mapActions("colors", ["setSelectedColor"])
+  }
 });
 </script>
 
