@@ -16,9 +16,15 @@
   bottom: 2px;
   right: 2px;
   cursor: inherit;
+  opacity: 1;
+  transition: 0.4s;
 
   &--inverted {
     color: $white;
+  }
+
+  &--off {
+    opacity: 0;
   }
 
   &__ghost {

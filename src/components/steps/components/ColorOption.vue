@@ -6,9 +6,11 @@
       @click="setSelectedColor(color)"
     >
       <span
-        v-if="color.isSelected"
         class="material-icons CheckBoxIcon"
-        :class="color.code === 'black' && 'CheckBoxIcon--inverted'"
+        :class="[
+          color.code === 'black' && 'CheckBoxIcon--inverted',
+          !color.isSelected && 'CheckBoxIcon--off'
+        ]"
         >check_box</span
       >
     </div>
