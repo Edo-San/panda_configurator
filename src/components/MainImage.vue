@@ -1,13 +1,21 @@
 <template>
   <div class="MainImage">
-    <img class="MainImage__image" src="@/assets/images/panda/arancione.png" />
+    <img
+      class="MainImage__image"
+      :src="require(`@/assets/images/panda/${getSelectedColor.code}.png`)"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
+
 export default Vue.extend({
-  name: "MainImage"
+  name: "MainImage",
+  computed: {
+    ...mapGetters("colors", ["getSelectedColor"])
+  }
 });
 </script>
 
@@ -15,5 +23,9 @@ export default Vue.extend({
 .MainImage {
   width: 100%;
   text-align: center;
+
+  &__image {
+    width: 342px;
+  }
 }
 </style>
