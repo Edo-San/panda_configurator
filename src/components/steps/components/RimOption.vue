@@ -1,9 +1,9 @@
 <template>
-  <div class="Option ColorOption">
+  <div class="Option RimOption">
     <div
       class="Option__Swatch"
-      :class="[`ColorOption__Swatch--${color.code}`]"
-      @click="setSelectedColor(color)"
+      :class="[`RimOption__Swatch--${rim.code}`]"
+      @click="setSelectedRim(rim)"
     >
       <span
         class="material-icons CheckBoxIcon"
@@ -26,34 +26,12 @@ import Vue from "vue";
 import { mapActions } from "vuex";
 
 export default Vue.extend({
-  name: "ColorOption",
-  props: ["color"],
+  name: "RimOption",
+  props: ["rim"],
   methods: {
-    ...mapActions("colors", ["setSelectedColor"])
+    ...mapActions("rims", ["setSelectedRim"])
   }
 });
 </script>
 
-<style lang="scss" scoped>
-@import "@/css/_variables.scss";
-
-.ColorOption {
-  &__Swatch {
-    &--orange {
-      background-color: $orange;
-    }
-
-    &--blue {
-      background-color: $blue;
-    }
-
-    &--black {
-      background-color: $black;
-    }
-
-    &--white {
-      background-color: $white;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>
