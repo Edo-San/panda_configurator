@@ -17,9 +17,11 @@ export default Vue.extend({
   methods: {
     ...mapActions("navigation", ["setActiveSection"]),
     onForwardButtonClick: function() {
-      this.setActiveSection(
-        this.getSections[this.getSections.indexOf(this.getActiveSection) + 1]
+      const currentActiveIndex = this.getSections.indexOf(
+        this.getActiveSection
       );
+      currentActiveIndex < this.getSections.length - 1 &&
+        this.setActiveSection(this.getSections[currentActiveIndex + 1]);
     }
   }
 });
