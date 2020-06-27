@@ -1,8 +1,30 @@
-<template> </template>
+<template>
+  <section class="Step">
+    <StepOption
+      v-for="option in options"
+      :key="option.code"
+      :option="option"
+      :setSelected="() => {}"
+    />
+  </section>
+</template>
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+import StepOption from "./StepOption.vue";
+
+export default Vue.extend({
+  components: {
+    StepOption: StepOption
+  },
+  name: "Step",
+  props: {
+    options: {
+      type: Array,
+      required: true
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

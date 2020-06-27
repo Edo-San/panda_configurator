@@ -3,17 +3,19 @@
     <CustomHeader />
     <MainImage />
     <NavigationBar />
-    <ColorStep />
+    <Step :options="options" />
     <ForwardButton />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
+
 import CustomHeader from "../components/CustomHeader.vue";
 import MainImage from "../components/MainImage.vue";
 import NavigationBar from "../components/NavigationBar.vue";
-import ColorStep from "../components/steps/ColorStep.vue";
+import Step from "../components/Step.vue";
 import ForwardButton from "../components/ForwardButton.vue";
 
 export default Vue.extend({
@@ -22,8 +24,37 @@ export default Vue.extend({
     CustomHeader: CustomHeader,
     MainImage: MainImage,
     NavigationBar: NavigationBar,
-    ColorStep: ColorStep,
-    ForwardButton: ForwardButton
+    ForwardButton: ForwardButton,
+    Step: Step
+  },
+  data: function() {
+    return {
+      options: []
+    };
+  },
+  computed: {
+    ...mapGetters("navigation", ["getActiveSection"]),
+    ...mapGetters("colors", ["getColors"])
+  },
+  methods: {
+    setActiveSectionOptions(activeSection) {
+      switch (activeSection) {
+        case "color":
+          this.options = this.getColors;
+          break;
+
+        case "rims":
+          this.options = [];
+          break;
+
+        default:
+          this.options = this.getColors;
+          break;
+      }
+    }
+  },
+  beforeMount() {
+    this.setActiveSectionOptions(this.getActiveSection);
   }
 });
 </script>
