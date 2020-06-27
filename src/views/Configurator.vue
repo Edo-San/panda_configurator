@@ -3,7 +3,7 @@
     <CustomHeader />
     <MainImage />
     <NavigationBar />
-    <Step :options="options" />
+    <Step :options="activeSectionOptions" />
     <ForwardButton />
   </div>
 </template>
@@ -34,27 +34,31 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters("navigation", ["getActiveSection"]),
-    ...mapGetters("colors", ["getColors"])
-  },
-  methods: {
-    setActiveSectionOptions(activeSection) {
-      switch (activeSection) {
+    ...mapGetters("colors", ["getColors"]),
+    ...mapGetters("rims", ["getRims"]),
+    activeSectionOptions: function() {
+      console.log("ACTIVE SECTION in computed", this.getActiveSection);
+      let activeSectionOptions = [];
+      switch (this.getActiveSection.code) {
         case "color":
-          this.options = this.getColors;
+          console.log("color");
+          activeSectionOptions = this.getColors;
           break;
 
         case "rims":
-          this.options = [];
+          console.log("rims");
+          activeSectionOptions = this.getRims;
           break;
 
         default:
-          this.options = this.getColors;
+          console.log("default");
+          activeSectionOptions = this.getColors;
           break;
       }
+
+      console.log("OPTIONS", activeSectionOptions);
+      return activeSectionOptions;
     }
-  },
-  beforeMount() {
-    this.setActiveSectionOptions(this.getActiveSection);
   }
 });
 </script>

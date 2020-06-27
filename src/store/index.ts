@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 import navigation from "./navigation";
 import colors from "./colors";
+import rims from "./rims";
 
 Vue.use(Vuex);
 
@@ -10,5 +11,6 @@ export default new Vuex.Store({
   modules: {
     navigation,
     colors,
+    rims,
   },
 });
