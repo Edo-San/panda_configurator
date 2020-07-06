@@ -37,16 +37,15 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions("colors", ["setSelectedColor"]),
+    ...mapActions("rims", ["setSelectedRim"]),
     setSelectedOption(option) {
       switch (this.getActiveSection.code) {
         case "color":
-          console.log("color");
           this.setSelectedColor(option);
           break;
 
         case "rims":
-          console.log("rims");
-          // activeSectionOptions = this.getRims;
+          this.setSelectedRim(option);
           break;
 
         default:
