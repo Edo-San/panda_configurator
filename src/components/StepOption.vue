@@ -8,7 +8,7 @@
       <span
         class="material-icons CheckBoxIcon"
         :class="[
-          option.code === 'black' && 'CheckBoxIcon--inverted',
+          option.isCheckBoxIconInverted === true && 'CheckBoxIcon--inverted',
           !option.isSelected && 'CheckBoxIcon--off'
         ]"
         >check_box</span
@@ -86,6 +86,23 @@ export default Vue.extend({
       background-position: center;
       background-size: 100%;
       border: none;
+    }
+
+    .CheckBoxIcon {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      cursor: inherit;
+      opacity: 1;
+      transition: 0.6s;
+
+      &--inverted {
+        color: $white;
+      }
+
+      &--off {
+        opacity: 0;
+      }
     }
   }
 

@@ -10,24 +10,4 @@
 
 <style lang="scss">
 @import "@/css/_variables.scss";
-
-.CheckBoxIcon {
-  position: absolute;
-  bottom: 2px;
-  right: 2px;
-  cursor: inherit;
-  opacity: 1;
-  transition: 0.6s;
-
-  &--inverted {
-    color: $white;
-  }
-
-  &--off {
-    opacity: 0;
-  }
-
-  &__ghost {
-  }
-}
 </style>
