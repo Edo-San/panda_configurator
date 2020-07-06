@@ -56,6 +56,7 @@ export default Vue.extend({
     cursor: pointer;
 
     // CSS option custom classes
+    // Colors
     &--orange {
       background-color: $orange;
     }
@@ -70,6 +71,21 @@ export default Vue.extend({
 
     &--black {
       background-color: $black;
+    }
+
+    // Rims
+    &--basic {
+      background-image: url("~@/assets/images/rims/basic.png");
+      background-position: center;
+      background-size: 100%;
+      border: none;
+    }
+
+    &--aesthetics {
+      background-image: url("~@/assets/images/rims/aesthetics.png");
+      background-position: center;
+      background-size: 100%;
+      border: none;
     }
   }
 
