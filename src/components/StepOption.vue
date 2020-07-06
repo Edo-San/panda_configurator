@@ -88,6 +88,15 @@ export default Vue.extend({
       border: none;
     }
 
+    // Glasses
+    &--slightly_dark {
+      background-color: $slightly-dark;
+    }
+
+    &--very_dark {
+      background-color: $very-dark;
+    }
+
     .CheckBoxIcon {
       position: absolute;
       bottom: 2px;

@@ -38,6 +38,7 @@ export default Vue.extend({
   methods: {
     ...mapActions("colors", ["setSelectedColor"]),
     ...mapActions("rims", ["setSelectedRim"]),
+    ...mapActions("glasses", ["setSelectedGlass"]),
     setSelectedOption(option) {
       switch (this.getActiveSection.code) {
         case "color":
@@ -46,6 +47,10 @@ export default Vue.extend({
 
         case "rims":
           this.setSelectedRim(option);
+          break;
+
+        case "glasses":
+          this.setSelectedGlass(option);
           break;
 
         default:
@@ -59,6 +64,7 @@ export default Vue.extend({
     ...mapGetters("navigation", ["getActiveSection"]),
     ...mapGetters("colors", ["getColors"]),
     ...mapGetters("rims", ["getRims"]),
+    ...mapGetters("glasses", ["getGlasses"]),
     activeSectionOptions: function() {
       console.log("ACTIVE SECTION in computed", this.getActiveSection);
       let activeSectionOptions = [];
@@ -71,6 +77,10 @@ export default Vue.extend({
         case "rims":
           console.log("rims");
           activeSectionOptions = this.getRims;
+          break;
+
+        case "glasses":
+          activeSectionOptions = this.getGlasses;
           break;
 
         default:
