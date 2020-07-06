@@ -26,7 +26,6 @@ export default Vue.extend({
   },
   methods: {
     handleSetSelectedOption(option) {
-      console.log("STEP", option);
       this.$emit("set-selected-option", option);
     }
   }
