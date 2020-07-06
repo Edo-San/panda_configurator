@@ -3,14 +3,17 @@
     <CustomHeader />
     <MainImage />
     <NavigationBar />
-    <Step :options="activeSectionOptions" />
+    <Step
+      :options="activeSectionOptions"
+      @set-selected-option="setSelectedOption"
+    />
     <ForwardButton />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import CustomHeader from "../components/CustomHeader.vue";
 import MainImage from "../components/MainImage.vue";
@@ -31,6 +34,27 @@ export default Vue.extend({
     return {
       options: []
     };
+  },
+  methods: {
+    ...mapActions("colors", ["setSelectedColor"]),
+    setSelectedOption(option) {
+      switch (this.getActiveSection.code) {
+        case "color":
+          console.log("color");
+          this.setSelectedColor(option);
+          break;
+
+        case "rims":
+          console.log("rims");
+          // activeSectionOptions = this.getRims;
+          break;
+
+        default:
+          console.log("default");
+          this.setSelectedColor(option);
+          break;
+      }
+    }
   },
   computed: {
     ...mapGetters("navigation", ["getActiveSection"]),

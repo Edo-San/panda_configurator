@@ -4,7 +4,7 @@
       v-for="option in options"
       :key="option.code"
       :option="option"
-      :setSelected="() => {}"
+      @set-selected-option="handleSetSelectedOption"
     />
   </section>
 </template>
@@ -22,6 +22,12 @@ export default Vue.extend({
     options: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    handleSetSelectedOption(option) {
+      console.log("STEP", option);
+      this.$emit("set-selected-option", option);
     }
   }
 });

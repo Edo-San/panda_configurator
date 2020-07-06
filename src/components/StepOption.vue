@@ -3,7 +3,7 @@
     <div
       class="Option__Swatch"
       :class="[`RimOption__Swatch--${option.code}`]"
-      @click="setSelected(option)"
+      @click="handleSetSelectedOption(option)"
     >
       <span
         class="material-icons CheckBoxIcon"
@@ -29,10 +29,12 @@ export default Vue.extend({
     option: {
       type: Object,
       required: true
-    },
-    setSelected: {
-      type: Function,
-      required: true
+    }
+  },
+  methods: {
+    handleSetSelectedOption(option) {
+      console.log("STEPOPTION", option);
+      this.$emit("set-selected-option", option);
     }
   }
 });
