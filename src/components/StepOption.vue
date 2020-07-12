@@ -97,6 +97,21 @@ export default Vue.extend({
       background-color: $very-dark;
     }
 
+    // Virility
+    &--nerd {
+      background-image: url("~@/assets/images/virility/nerd.png");
+      background-position: center;
+      background-size: 100%;
+      border: none;
+    }
+
+    &--tough {
+      background-image: url("~@/assets/images/virility/tough.png");
+      background-position: center;
+      background-size: 100%;
+      border: none;
+    }
+
     .CheckBoxIcon {
       position: absolute;
       bottom: 2px;
@@ -123,8 +138,7 @@ export default Vue.extend({
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 1.4px;
-      font-variant: all-small-caps;
-      font-size: 20px;
+      font-size: 12px;
       line-height: 10px;
       margin-bottom: 12px;
     }

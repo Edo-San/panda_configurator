@@ -39,6 +39,7 @@ export default Vue.extend({
     ...mapActions("colors", ["setSelectedColor"]),
     ...mapActions("rims", ["setSelectedRim"]),
     ...mapActions("glasses", ["setSelectedGlass"]),
+    ...mapActions("virility", ["setSelectedVirility"]),
     setSelectedOption(option) {
       switch (this.getActiveSection.code) {
         case "color":
@@ -53,8 +54,11 @@ export default Vue.extend({
           this.setSelectedGlass(option);
           break;
 
+        case "virility":
+          this.setSelectedVirility(option);
+          break;
+
         default:
-          console.log("default");
           this.setSelectedColor(option);
           break;
       }
@@ -65,17 +69,15 @@ export default Vue.extend({
     ...mapGetters("colors", ["getColors"]),
     ...mapGetters("rims", ["getRims"]),
     ...mapGetters("glasses", ["getGlasses"]),
+    ...mapGetters("virility", ["getVirilities"]),
     activeSectionOptions: function() {
-      console.log("ACTIVE SECTION in computed", this.getActiveSection);
       let activeSectionOptions = [];
       switch (this.getActiveSection.code) {
         case "color":
-          console.log("color");
           activeSectionOptions = this.getColors;
           break;
 
         case "rims":
-          console.log("rims");
           activeSectionOptions = this.getRims;
           break;
 
@@ -83,13 +85,15 @@ export default Vue.extend({
           activeSectionOptions = this.getGlasses;
           break;
 
+        case "virility":
+          activeSectionOptions = this.getVirilities;
+          break;
+
         default:
-          console.log("default");
           activeSectionOptions = this.getColors;
           break;
       }
 
-      console.log("OPTIONS", activeSectionOptions);
       return activeSectionOptions;
     }
   }
