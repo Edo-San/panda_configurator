@@ -5,6 +5,7 @@ import navigation from "./navigation";
 import colors from "./colors";
 import rims from "./rims";
 import glasses from "./glasses";
+import virility from "./virility";
 
 Vue.use(Vuex);
 
@@ -14,5 +15,6 @@ export default new Vuex.Store({
     colors,
     rims,
     glasses,
+    virility,
   },
 });
