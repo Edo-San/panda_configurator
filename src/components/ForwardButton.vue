@@ -32,7 +32,7 @@ export default Vue.extend({
 
 .ForwardButton {
   border: 1px solid $black;
-  margin: 0px 36px;
+  margin: auto 36px 30px 36px;
   display: flex;
   align-items: center;
   height: 50px;

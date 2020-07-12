@@ -106,10 +106,12 @@ export default Vue.extend({
 .Configurator {
   &__container {
     width: $full-width;
-    height: 1000px;
+    height: 806px;
     margin: 0px auto;
     background-color: $light-gray;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
     // text-transform: uppercase;
     // font-weight: 600;
     // letter-spacing: 1.4px;

@@ -46,6 +46,10 @@ export default Vue.extend({
   display: flex;
   margin-bottom: 25px;
 
+  &:nth-last-of-type(1) {
+    margin-bottom: 0px;
+  }
+
   &__Swatch {
     border: 1px solid $black;
     flex-basis: 50px;
