@@ -8,6 +8,7 @@
       @set-selected-option="setSelectedOption"
     />
     <ForwardButton />
+    <Greetings :isActive="false" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import MainImage from "../components/MainImage.vue";
 import NavigationBar from "../components/NavigationBar.vue";
 import Step from "../components/Step.vue";
 import ForwardButton from "../components/ForwardButton.vue";
+import Greetings from "../components/Greetings.vue";
 
 export default Vue.extend({
   name: "Configurator",
@@ -28,7 +30,8 @@ export default Vue.extend({
     MainImage: MainImage,
     NavigationBar: NavigationBar,
     ForwardButton: ForwardButton,
-    Step: Step
+    Step: Step,
+    Greetings: Greetings
   },
   data: function() {
     return {
@@ -112,6 +115,7 @@ export default Vue.extend({
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    position: relative;
     // text-transform: uppercase;
     // font-weight: 600;
     // letter-spacing: 1.4px;
