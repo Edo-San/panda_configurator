@@ -1,8 +1,8 @@
 <template>
-  <div class="ForwardButton" @click="onForwardButtonClick">
-    <h3 class="ForwardButton__text">Vai avanti, se te la senti</h3>
-    <span class="material-icons">trending_flat</span>
-  </div>
+  <button class="ForwardButton" @click="onForwardButtonClick">
+    <span class="ForwardButton__text">{{ this.text }}</span>
+    <span class="material-icons ForwardButton__icon">trending_flat</span>
+  </button>
 </template>
 
 <script lang="ts">
@@ -11,17 +11,19 @@ import { mapActions, mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "ForwardButton",
+  props: {
+    text: {
+      type: String,
+      required: true
+    }
+  },
   computed: {
     ...mapGetters("navigation", ["getActiveSection", "getSections"])
   },
   methods: {
     ...mapActions("navigation", ["setActiveSection"]),
     onForwardButtonClick: function() {
-      const currentActiveIndex = this.getSections.indexOf(
-        this.getActiveSection
-      );
-      currentActiveIndex < this.getSections.length - 1 &&
-        this.setActiveSection(this.getSections[currentActiveIndex + 1]);
+      this.$emit("click");
     }
   }
 });
@@ -36,9 +38,20 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   height: 50px;
-  justify-content: space-around;
+  justify-content: space-between;
   cursor: pointer;
   transition: 0.2s;
+  background-color: transparent;
+  padding: 0px;
+
+  &:focus {
+    outline: transparent;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: $black;
+  }
 
   &__text {
     letter-spacing: 1.68px;
@@ -47,11 +60,11 @@ export default Vue.extend({
     font-size: 12px;
     line-height: 15px;
     font-weight: 600;
+    margin-left: 20px;
   }
 
-  &:hover {
-    color: $white;
-    background-color: $black;
+  &__icon {
+    margin-right: 20px;
   }
 }
 </style>

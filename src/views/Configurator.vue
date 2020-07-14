@@ -1,14 +1,20 @@
 <template>
   <div class="Configurator__container">
-    <CustomHeader />
-    <MainImage />
-    <NavigationBar />
-    <Step
+    <custom-header />
+    <main-image />
+    <navigation-bar />
+    <step
       :options="activeSectionOptions"
       @set-selected-option="setSelectedOption"
     />
-    <ForwardButton />
-    <Greetings :isActive="false" />
+    <forward-button
+      @click="onForwardButtonClick"
+      text="Vai avanti, se te la senti"
+    />
+    <greetings
+      :isActive="isGreetingsViewActive"
+      @back-click="onGreetingsBackButtonClick"
+    />
   </div>
 </template>
 
@@ -35,7 +41,8 @@ export default Vue.extend({
   },
   data: function() {
     return {
-      options: []
+      options: [],
+      isGreetingsViewActive: false
     };
   },
   methods: {
@@ -43,6 +50,7 @@ export default Vue.extend({
     ...mapActions("rims", ["setSelectedRim"]),
     ...mapActions("glasses", ["setSelectedGlass"]),
     ...mapActions("virility", ["setSelectedVirility"]),
+    ...mapActions("navigation", ["setActiveSection"]),
     setSelectedOption(option) {
       switch (this.getActiveSection.code) {
         case "color":
@@ -65,10 +73,22 @@ export default Vue.extend({
           this.setSelectedColor(option);
           break;
       }
+    },
+    onForwardButtonClick: function() {
+      const currentActiveIndex = this.getSections.indexOf(
+        this.getActiveSection
+      );
+      currentActiveIndex < this.getSections.length - 1
+        ? this.setActiveSection(this.getSections[currentActiveIndex + 1])
+        : (this.isGreetingsViewActive = true);
+    },
+    onGreetingsBackButtonClick: function() {
+      this.setActiveSection(this.getSections[0]);
+      this.isGreetingsViewActive = false;
     }
   },
   computed: {
-    ...mapGetters("navigation", ["getActiveSection"]),
+    ...mapGetters("navigation", ["getActiveSection", "getSections"]),
     ...mapGetters("colors", ["getColors"]),
     ...mapGetters("rims", ["getRims"]),
     ...mapGetters("glasses", ["getGlasses"]),
@@ -116,11 +136,6 @@ export default Vue.extend({
     display: flex;
     flex-direction: column;
     position: relative;
-    // text-transform: uppercase;
-    // font-weight: 600;
-    // letter-spacing: 1.4px;
-    // font-variant: all-small-caps;
-    // font-size: 20px;
 
     .Step {
       margin: 30px 36px;
