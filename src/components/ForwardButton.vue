@@ -1,7 +1,19 @@
 <template>
-  <button class="ForwardButton" @click="onForwardButtonClick">
-    <span class="ForwardButton__text">{{ this.text }}</span>
-    <span class="material-icons ForwardButton__icon">trending_flat</span>
+  <button
+    class="ForwardButton"
+    :class="{ 'ForwardButton--backwards': pointsBackwards }"
+    @click="onForwardButtonClick"
+  >
+    <span
+      class="ForwardButton__text"
+      :class="{ 'ForwardButton__text--backwards': pointsBackwards }"
+      >{{ this.text }}</span
+    >
+    <span
+      class="material-icons ForwardButton__icon"
+      :class="{ 'ForwardButton__icon--backwards': pointsBackwards }"
+      >trending_flat</span
+    >
   </button>
 </template>
 
@@ -15,6 +27,10 @@ export default Vue.extend({
     text: {
       type: String,
       required: true
+    },
+    pointsBackwards: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -61,10 +77,23 @@ export default Vue.extend({
     line-height: 15px;
     font-weight: 600;
     margin-left: 20px;
+
+    &--backwards {
+      margin-right: 20px;
+    }
   }
 
   &__icon {
     margin-right: 20px;
+
+    &--backwards {
+      margin-left: 20px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--backwards {
+    flex-direction: row-reverse;
   }
 }
 </style>

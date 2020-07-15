@@ -13,6 +13,7 @@
       text="Si, sono sicuro"
     />
     <forward-button
+      :pointsBackwards="true"
       @click="onBackClick"
       class="Greetings__back"
       text="No, non me la sento"
