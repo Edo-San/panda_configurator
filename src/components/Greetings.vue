@@ -1,14 +1,22 @@
 <template>
   <div class="Greetings" v-if="isActive">
     <img class="Greetings__logo" src="@/assets/images/fiat_logo.png" />
-    <h3>GRAZIE!</h3>
+    <h4>GRAZIE!</h4>
     <h4>Sei l’unico ad aver finito la configurazione.</h4>
     <p>
       Per scrupolo te lo chiediamo, sei davvero sicuro di quello che hai fatto?
       <strong>Te la senti?</strong>
     </p>
-    <forward-button @click="onConfirmationClick" text="Si, sono sicuro" />
-    <forward-button @click="onBackClick" text="No, non me la sento" />
+    <forward-button
+      @click="onConfirmationClick"
+      class="Greetings__confirmation"
+      text="Si, sono sicuro"
+    />
+    <forward-button
+      @click="onBackClick"
+      class="Greetings__back"
+      text="No, non me la sento"
+    />
   </div>
 </template>
 
@@ -32,7 +40,6 @@ export default Vue.extend({
       console.log("I AM SURE");
     },
     onBackClick: function() {
-      console.log("BACK CLICK");
       this.$emit("back-click");
     }
   }
@@ -54,6 +61,35 @@ export default Vue.extend({
     margin: 92px auto 370px auto;
     width: 200px;
     height: auto;
+  }
+
+  &__confirmation {
+    margin-bottom: 10px;
+  }
+
+  &__back {
+    margin-top: 0px;
+  }
+
+  h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+
+    &:nth-of-type(1) {
+      letter-spacing: 3px;
+    }
+  }
+
+  p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 14px;
+    padding: 0px 36px;
+    margin-top: 20px;
+    margin-bottom: 43px;
   }
 }
 </style>
