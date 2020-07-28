@@ -137,9 +137,35 @@ export default Vue.extend({
     flex-direction: column;
     position: relative;
 
-    .Step {
-      margin: 30px 36px;
-    }
+    // .Step {
+    //   margin: 30px 36px;
+
+    //   &__marker {
+    //     z-index: 2;
+    //     color: red;
+    //     position: absolute;
+
+    //     &--0 {
+    //       bottom: 116px;
+    //       left: 59px;
+    //     }
+
+    //     &--1 {
+    //       bottom: 116px;
+    //       left: 59px;
+    //     }
+
+    //     &--2 {
+    //       bottom: 116px;
+    //       left: 59px;
+    //     }
+
+    //     &--3 {
+    //       bottom: 116px;
+    //       left: 59px;
+    //     }
+    //   }
+    // }
   }
 }
 </style>
