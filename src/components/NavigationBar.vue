@@ -9,7 +9,7 @@
           section.isActive && 'NavigationBar__list__element--active',
           `NavigationBar__list__element--${section.code}`
         ]"
-        @click="setActiveSection(section)"
+        @click="setCurrentSection(section)"
       >
         {{ section.name }}
       </li>
@@ -32,7 +32,15 @@ export default Vue.extend({
     ...mapGetters("navigation", ["getSections", "getActiveSection"])
   },
   methods: {
-    ...mapActions("navigation", ["setActiveSection"])
+    ...mapActions("navigation", ["setActiveSection", "setIsStepFading"]),
+    setCurrentSection: function(section) {
+      this.setIsStepFading(true);
+
+      setTimeout(() => {
+        this.setActiveSection(section);
+        this.setIsStepFading(false);
+      }, 350);
+    }
   }
 });
 </script>

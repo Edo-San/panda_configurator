@@ -5,6 +5,7 @@
     <navigation-bar />
     <step
       :options="activeSectionOptions"
+      :class="{ 'Step--fading': this.isStepFading }"
       @set-selected-option="setSelectedOption"
     />
     <forward-button
@@ -50,7 +51,7 @@ export default Vue.extend({
     ...mapActions("rims", ["setSelectedRim"]),
     ...mapActions("glasses", ["setSelectedGlass"]),
     ...mapActions("virility", ["setSelectedVirility"]),
-    ...mapActions("navigation", ["setActiveSection"]),
+    ...mapActions("navigation", ["setActiveSection", "setIsStepFading"]),
     setSelectedOption(option) {
       switch (this.getActiveSection.code) {
         case "color":
@@ -75,12 +76,19 @@ export default Vue.extend({
       }
     },
     onForwardButtonClick: function() {
+      this.setIsStepFading(true); // 0.35s
+
       const currentActiveIndex = this.getSections.indexOf(
         this.getActiveSection
       );
-      currentActiveIndex < this.getSections.length - 1
-        ? this.setActiveSection(this.getSections[currentActiveIndex + 1])
-        : (this.isGreetingsViewActive = true);
+
+      setTimeout(() => {
+        currentActiveIndex < this.getSections.length - 1
+          ? this.setActiveSection(this.getSections[currentActiveIndex + 1])
+          : (this.isGreetingsViewActive = true);
+
+        this.setIsStepFading(false);
+      }, 350);
     },
     onGreetingsBackButtonClick: function() {
       this.setActiveSection(this.getSections[0]);
@@ -88,7 +96,11 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters("navigation", ["getActiveSection", "getSections"]),
+    ...mapGetters("navigation", [
+      "getActiveSection",
+      "getSections",
+      "isStepFading"
+    ]),
     ...mapGetters("colors", ["getColors"]),
     ...mapGetters("rims", ["getRims"]),
     ...mapGetters("glasses", ["getGlasses"]),

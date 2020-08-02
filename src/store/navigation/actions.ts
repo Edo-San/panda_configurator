@@ -1,4 +1,4 @@
-import { SET_ACTIVE_SECTION, SET_INACTIVE_SECTION } from "./mutations";
+import { SET_ACTIVE_SECTION, SET_INACTIVE_SECTION, SET_IS_STEP_FADING } from "./mutations";
 
 export default {
   setActiveSection: ({ commit, dispatch, state }, section) => {
@@ -10,5 +10,8 @@ export default {
   },
   setInactiveSection: ({ commit }, section) => {
     commit(SET_INACTIVE_SECTION, section);
+  },
+  setIsStepFading: ({ commit }, isStepFading: boolean) => {
+    commit(SET_IS_STEP_FADING, isStepFading);
   },
 };

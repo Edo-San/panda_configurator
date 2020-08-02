@@ -25,6 +25,7 @@ const state = {
       isActive: false,
     },
   ],
+  isStepFading: false,
 };
 
 export default {
