@@ -23,6 +23,8 @@
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 
+import { Option } from "@/types";
+
 import CustomHeader from "../components/CustomHeader.vue";
 import MainImage from "../components/MainImage.vue";
 import NavigationBar from "../components/NavigationBar.vue";
@@ -52,7 +54,7 @@ export default Vue.extend({
     ...mapActions("glasses", ["setSelectedGlass"]),
     ...mapActions("virility", ["setSelectedVirility"]),
     ...mapActions("navigation", ["setActiveSection", "setIsStepFading"]),
-    setSelectedOption(option) {
+    setSelectedOption(option: Option) {
       switch (this.getActiveSection.code) {
         case "color":
           this.setSelectedColor(option);
@@ -105,7 +107,7 @@ export default Vue.extend({
     ...mapGetters("rims", ["getRims"]),
     ...mapGetters("glasses", ["getGlasses"]),
     ...mapGetters("virility", ["getVirilities"]),
-    activeSectionOptions: function() {
+    activeSectionOptions: function(): Array<null | Option> {
       let activeSectionOptions = [];
       switch (this.getActiveSection.code) {
         case "color":
@@ -148,36 +150,6 @@ export default Vue.extend({
     display: flex;
     flex-direction: column;
     position: relative;
-
-    // .Step {
-    //   margin: 30px 36px;
-
-    //   &__marker {
-    //     z-index: 2;
-    //     color: red;
-    //     position: absolute;
-
-    //     &--0 {
-    //       bottom: 116px;
-    //       left: 59px;
-    //     }
-
-    //     &--1 {
-    //       bottom: 116px;
-    //       left: 59px;
-    //     }
-
-    //     &--2 {
-    //       bottom: 116px;
-    //       left: 59px;
-    //     }
-
-    //     &--3 {
-    //       bottom: 116px;
-    //       left: 59px;
-    //     }
-    //   }
-    // }
   }
 }
 </style>

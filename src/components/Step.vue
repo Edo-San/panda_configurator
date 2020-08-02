@@ -32,7 +32,6 @@ export default Vue.extend({
   },
   computed: {
     selectedOptionIndex: function() {
-      // console.log(this.options.findIndex(option => option.isSelected === true));
       return this.options.findIndex(option => option.isSelected === true);
     }
   },
