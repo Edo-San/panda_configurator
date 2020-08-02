@@ -18,6 +18,7 @@
 <script lang="ts">
 import Vue from "vue";
 import StepOption from "./StepOption.vue";
+import { Option } from "../types";
 
 export default Vue.extend({
   components: {
@@ -26,17 +27,17 @@ export default Vue.extend({
   name: "Step",
   props: {
     options: {
-      type: Array,
+      type: Array as () => Array<Option>, // SUPER COOL!
       required: true
     }
   },
   computed: {
-    selectedOptionIndex: function() {
+    selectedOptionIndex: function(): number {
       return this.options.findIndex(option => option.isSelected === true);
     }
   },
   methods: {
-    handleSetSelectedOption(option) {
+    handleSetSelectedOption(option: Option) {
       this.$emit("set-selected-option", option);
     }
   }

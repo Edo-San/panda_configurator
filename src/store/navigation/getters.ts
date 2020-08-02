@@ -1,5 +1,7 @@
+import { StoreNavigationState } from "@/types";
+
 export default {
-  getSections: (state) => state.sections,
-  getActiveSection: (state) => state.sections.find((section) => section.isActive === true),
-  isStepFading: (state) => state.isStepFading,
+  getSections: (state: StoreNavigationState) => state.sections,
+  getActiveSection: (state: StoreNavigationState) => state.sections.find((section) => section.isActive === true),
+  isStepFading: (state: StoreNavigationState) => state.isStepFading,
 };

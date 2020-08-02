@@ -5,3 +5,18 @@ export type Option = {
   isCheckBoxIconInverted: boolean;
   code: string;
 };
+
+export type Section = {
+  code: string;
+  name: string;
+  isActive: boolean;
+};
+
+export type StoreNavigationState = {
+  sections: Array<Section>;
+  isStepFading: boolean;
+};
+
+export type StoreGlassesState = {
+  glasses: Array<Option>;
+};

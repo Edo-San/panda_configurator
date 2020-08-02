@@ -25,6 +25,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
+import { Section } from "@/types";
 
 export default Vue.extend({
   name: "NavigationBar",
@@ -33,7 +34,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions("navigation", ["setActiveSection", "setIsStepFading"]),
-    setCurrentSection: function(section) {
+    setCurrentSection: function(section: Section) {
       this.setIsStepFading(true);
 
       setTimeout(() => {

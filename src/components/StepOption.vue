@@ -23,16 +23,17 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Option } from "@/types";
 
 export default Vue.extend({
   props: {
     option: {
-      type: Object,
+      type: Object as () => Option,
       required: true
     }
   },
   methods: {
-    handleSetSelectedOption(option) {
+    handleSetSelectedOption(option: Option) {
       this.$emit("set-selected-option", option);
     }
   }

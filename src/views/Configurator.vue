@@ -78,19 +78,24 @@ export default Vue.extend({
       }
     },
     onForwardButtonClick: function() {
-      this.setIsStepFading(true); // 0.35s
-
       const currentActiveIndex = this.getSections.indexOf(
         this.getActiveSection
       );
 
-      setTimeout(() => {
-        currentActiveIndex < this.getSections.length - 1
-          ? this.setActiveSection(this.getSections[currentActiveIndex + 1])
-          : (this.isGreetingsViewActive = true);
+      const isLastStep = currentActiveIndex === 3;
 
-        this.setIsStepFading(false);
-      }, 350);
+      !isLastStep && this.setIsStepFading(true); // 0.35s
+
+      setTimeout(
+        () => {
+          currentActiveIndex < this.getSections.length - 1
+            ? this.setActiveSection(this.getSections[currentActiveIndex + 1])
+            : (this.isGreetingsViewActive = true);
+
+          this.setIsStepFading(false);
+        },
+        isLastStep ? 0 : 350
+      );
     },
     onGreetingsBackButtonClick: function() {
       this.setActiveSection(this.getSections[0]);
