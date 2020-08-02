@@ -1,6 +1,6 @@
-import virility from ".";
+import { StoreVirilityState } from "@/types";
 
 export default {
-  getVirilities: (state) => state.virilities,
-  getSelectedVirility: (state) => state.virilities.find((virility) => virility.isSelected === true),
+  getVirilities: (state: StoreVirilityState) => state.virilities,
+  getSelectedVirility: (state: StoreVirilityState) => state.virilities.find((virility) => virility.isSelected === true),
 };

@@ -20,3 +20,15 @@ export type StoreNavigationState = {
 export type StoreGlassesState = {
   glasses: Array<Option>;
 };
+
+export type StoreVirilityState = {
+  virilities: Array<Option>;
+};
+
+export type StoreRimsState = {
+  rims: Array<Option>;
+};
+
+export type StoreColorsState = {
+  colors: Array<Option>;
+};

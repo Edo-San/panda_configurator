@@ -1,4 +1,6 @@
+import { StoreRimsState } from "@/types";
+
 export default {
-  getRims: (state) => state.rims,
-  getSelectedRim: (state) => state.rims.find((rim) => rim.isSelected === true),
+  getRims: (state: StoreRimsState) => state.rims,
+  getSelectedRim: (state: StoreRimsState) => state.rims.find((rim) => rim.isSelected === true),
 };
